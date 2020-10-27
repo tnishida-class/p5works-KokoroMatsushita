@@ -18,10 +18,8 @@ function setup() {
       if((i+j)%2==1&&j>=5&&j<=7) {
         fill(0)
         ellipse(size*i+size/2,size*j+size/2,size,size)}
-
       }
       // BLANK[1] (hint: rectのx座標は size * i, y座標はsize * j)
     }
-
 }
 }
