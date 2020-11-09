@@ -21,7 +21,7 @@ function calendar(y, m){
 }
 
 function isLeapYear(y){
-  return (y % 4 == 0) && (y % 100 != 0) || (y % 400 == 0);
+  return (y % 4 == 0) && (y % 100 != 0) || (y % 400 == 0);//(y÷４＝０）かつ（ｙ÷100＝0でないとき）、または（ｙ÷400＝0）のとき
 }
 
 function daysInYear(y){
@@ -43,7 +43,7 @@ function daysInMonth(y, m){
 function dayOfYear(y, m, d){
   let count = 0;
   for(let i = 1; i < m; i++){
-    count += daysInMonth(y, i);
+    count += daysInMonth(y, i);//「count += n」 は「count を n 増やす」の意。：countを一ヶ月の日数分増やす
   }
   return count + d;
 }
