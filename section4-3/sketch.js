@@ -7,9 +7,10 @@ function setup(){
   y = height / 2;
 }
 
+//drawが何度も実行されるので滑らかな動きになる
 function draw(){
   background(160, 192, 255);
-  ellipse(x, y, 50);
+  ellipse(x, y, 30);
   if(keyIsDown(LEFT_ARROW)){ x -= 5; }
   if(keyIsDown(RIGHT_ARROW)){ x += 5; }
   if(keyIsDown(UP_ARROW)){ y -= 5; }
@@ -18,7 +19,7 @@ function draw(){
   if(keyIsDown(" ".charCodeAt(0))){ x-= 10; }
 }
 
-// イベントハンドラを使用するパターン
+// イベントハンドラを使用するパターン（1回だけ実行されるので滑らかに動かすのは難しい。キー連打する必要がある）
 // function keyPressed(){
 //   if(keyCode == LEFT_ARROW){ x -= 5; }
 //   else if(keyCode == RIGHT_ARROW){ x+= 5; }
