@@ -5,10 +5,12 @@ function setup(){
 
   for(let i = 2000; i <= 2100; i++){
     if(isLeapYear(i)){
-      console.log(i + "年はうるう年です");
+      //console.log(i + "年はうるう年です");
+      console.log(i + "年は365日です");
     }
     else{
-      console.log(i + "年はうるう年ではありません");
+      //console.log(i + "年はうるう年ではありません");
+      console.log(i + "年は365日です");
     }
   }
 }
@@ -42,17 +44,19 @@ function daysInMonth(y, m){
 
 function dayOfYear(y, m, d){
   let count = 0;
-  for(let i = 1; i < m; i++){
+  for(let i = 1; i < 13; i++){
     count += daysInMonth(y, i);//「count += n」 は「count を n 増やす」の意。：countを一ヶ月の日数分増やす
+
   }
   return count + d;
 }
 
 function dayOfWeek(y, m, d){
-  // BLANK[2]
-}
+  let count = 0;
+  for(let i=)
+//}
 
-function dayOfWeekAsString(dow){
-  const a = ["日", "月", "火", "水", "木", "金", "土", "日"];
-  return a[dow];
-}
+//function dayOfWeekAsString(dow){
+  //const a = ["日", "月", "火", "水", "木", "金", "土", "日"];
+  //return a[dow];
+//}
