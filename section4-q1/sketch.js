@@ -1,11 +1,17 @@
 // 練習問題「心臓の鼓動のように大きくなったり小さくなったりする円」
-let count;
+let count;//ポイント1：関数の外で変数を宣言する
 let cycle;
+let size;
 
 function setup(){
-  createCanvas(200, 200);
+  createCanvas(windowWidth, windowHeight);
   count = 0;
   cycle = 100;
+  size = 10
+}
+
+function windowResized(){
+  resizeCanvas(windowWidth, windowHeight);
 }
 
 function draw(){
@@ -13,4 +19,5 @@ function draw(){
   count = (count + 1) % cycle;
   // BLANK[1]
   ellipse(width / 2, height / 2, size);
+  if(0<size<50){size+=1}//なぜか永遠に大きくなる
 }
