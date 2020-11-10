@@ -34,6 +34,9 @@ function keyPressed(){
 
 function mousePressed(){
   grabbed = dist(mouseX, mouseY, x, y) < 30; // distは２点の距離を求める関数
+  //（カーソルの距離と円の中心が30より近かったらつかむ。つかむかどうかを判断）
+  //イベントハンドラーの中にはrectなどの絵を描く命令は入れない。
+  //絵を描く命令はdrawに入れる！
 }
 
 function mouseDragged(){
@@ -43,6 +46,7 @@ function mouseDragged(){
   }
 }
 
+//マウスが「押されているとき」にマウスを放すと
 function mouseReleased(){
   if(grabbed){
     grabbed = false;
