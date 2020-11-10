@@ -12,7 +12,7 @@ function balloon(t,x,y,bc,tc){
   let h = textAscent() + textDescent(); //文字列の高さを表している（下に突き出すか上に突き出すか）
   let p = 2;
   fill(bc);
-  rect(0, 0, w + p * 2, h + p * 2);
+  rect(x, y, w + p * 2, h + p * 2);
   fill(tc);
-  text(t, p, h + p);
+  text(t, p+x, h + p+y);
 }
