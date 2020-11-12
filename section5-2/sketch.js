@@ -19,6 +19,7 @@ function draw(){
   }
 
   // 画面外に出たボールを配列から削除する（関数を引数として渡す書き方を使っています）
+　//filter(isTnTheWindow)=ウィンドウ内に存在するデータのみ配列に残す
   balls = balls.filter(isInTheWindow);
 }
 
