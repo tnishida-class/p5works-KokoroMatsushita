@@ -6,8 +6,9 @@ let size;
 function setup(){
   createCanvas(windowWidth, windowHeight);
   count = 0;
-  cycle = 100;
-  size = 10
+  cycle = 100;//countは0～99。99までいったら0に戻る
+  size = 10;
+    console.log (size);
 }
 
 function windowResized(){
@@ -17,7 +18,10 @@ function windowResized(){
 function draw(){
   background(160, 192, 255);
   count = (count + 1) % cycle;
-  // BLANK[1]
-  ellipse(width / 2, height / 2, size);
-  if(0<size<50){size+=1}//なぜか永遠に大きくなる
+  console.log (size);  // BLANK[1]
+  console.log (size);
+  if(count<50){size=size+1}//sizeで定義するとバグるのでcountで50の時が最大になるようにする
+  else if(50<count){size=size-1};
+ellipse(width / 2, height / 2, size);
+
 }
