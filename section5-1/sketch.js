@@ -1,4 +1,7 @@
 // テキスト「配列」～「配列を使った描画」までを収録
+//棒の高さはスコアの大きさに比例する。
+//rectのy座標（画面の長さー棒の長さ）
+//棒の幅はすべて同じで、（画面の横の長さ÷データの数）
 function setup(){
   createCanvas(400, 400);
   background(240);
@@ -21,12 +24,17 @@ function sum(arr){
 //　テキスト「配列と繰り返し」練習問題
 function average(arr){
   // BLANK[1]
+  let n = 0;
+  for(let i = 0; i < arr.length; i++)
 }
 
 function largest(arr){
   let n = 0;
   for(let i = 0; i < arr.length; i++){
     // BLANK[2]
+    if(n < arr[i]){
+      n = arr[i];//ディフェンディングチャンピオンを決定する
+    }
   }
   return n;
 }
