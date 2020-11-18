@@ -5,9 +5,10 @@ function setup(){
 }
 
 function draw(){
-  background(160, 192, 255);
-}
-
+background(255, 255, 204);
+  fill(0)
+  strokeWeight(3)
+    line(0,windowHeight-50,windowWidth,windowHeight-50)}
 function windowResized(){
   resizeCanvas(windowWidth, windowHeight);
 }
