@@ -4,6 +4,7 @@ function setup(){
   calendar(2019, 10);
 
   for(let i = 2000; i <= 2100; i++){
+    console.log(i+"年は"daysInYear(i)"日あります");
     if(isLeapYear(i)){
       console.log(i + "年はうるう年です");
     }
@@ -21,11 +22,11 @@ function calendar(y, m){
 }
 
 function isLeapYear(y){
-  return (y % 4 == 0) && (y % 100 != 0) || (y % 400 == 0);
+  return (y % 4 == 0) && (y % 100 != 0) || (y % 400 == 0);//(y÷４＝０）かつ（ｙ÷100＝0でないとき）、または（ｙ÷400＝0）のとき
 }
 
 function daysInYear(y){
-  // BLANK[1]
+  if(isLeapYear(i))? 366 : 365 ;
 }
 
 function daysInMonth(y, m){
@@ -42,14 +43,15 @@ function daysInMonth(y, m){
 
 function dayOfYear(y, m, d){
   let count = 0;
-  for(let i = 1; i < m; i++){
-    count += daysInMonth(y, i);
+  for(let i = 1; i < 13; i++){
+    count += daysInMonth(y, i);//「count += n」 は「count を n 増やす」の意。：countを一ヶ月の日数分増やす
+
   }
   return count + d;
 }
 
 function dayOfWeek(y, m, d){
-  // BLANK[2]
+//BLANK[2]
 }
 
 function dayOfWeekAsString(dow){

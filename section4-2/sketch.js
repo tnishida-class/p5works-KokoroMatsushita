@@ -1,6 +1,6 @@
 // テキスト「アニメーション」
 let x, y, vx, vy;
-const g = 1; // 重力加速度
+const g = 1; // 重力加速度(ここをいじると重力の強さが変わる)
 const vyMax = 30;
 
 function setup(){
@@ -19,6 +19,11 @@ function draw(){
 
   // 重力（コメント機能でオンオフ切り替えて実行してみましょう）
   vy = constrain(vy + g, -vyMax, vyMax);
+//↑
+//vy=vy+g;
+//if(vy>vyMax)vy=vyMax;
+//if(vy<vyMax)vy=-vyMax;
+//これがないとどんどん早くなってしまうので、上限を設けている
 
   // 端の処理パターン (1) 反対側から出てくる
   // if(x > width){ x = 0; }
@@ -28,7 +33,7 @@ function draw(){
 
 　// 端の処理パターン (2) 跳ね返る
   if(x < 0 || x > width){ vx = -1 * vx; }
-  if(y > height){ vy = -1 * vy; }
+  if(y > height){ vy = -0.9 * vy; }//（vy=-1はバウンドによって高さが変わらない。vy＝－1.1はバウンドするたびに高く跳ねるようになる）
   x = constrain(x, 0, width);
   y = constrain(y, 0, height);
 }
