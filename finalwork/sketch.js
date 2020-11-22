@@ -18,15 +18,6 @@ function windowResized(){
 }
 
 let h =[];
-//for(let i = 0; i<10; i++)
-//{
-// h.push(random(0,windowHeight-110));
-//}
-//for(let i = 0; i< h.length; i++){
-// fill(255)
-// rect(a,h[i],80,60)
-// if(animate) a +=5
-
 
 function draw(){
   background(102, 204, 255);
