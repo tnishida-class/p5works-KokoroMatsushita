@@ -7,12 +7,6 @@ const vyMax = 200;
 function setup(){
   createCanvas(windowWidth, windowHeight);
   reset();
-  //x = windowWidth - 60;
-  //y = windowHeight/2;
-  //vx = 2;
-  //vy = 1;
-  //a = 0;
-  //animate = false;
 }
 
 function reset(){
@@ -22,6 +16,8 @@ function reset(){
   vy = 1;
   a = 0;
   animate = false;
+  fill(0);
+  //regularPolygon(10,250,50,40)
 }
 
 function windowResized(){
@@ -30,8 +26,20 @@ function windowResized(){
 
 let h =[];
 
+
+function star(cx, cy, r){
+  beginShape();
+  for(var i = 0; i < 5; i++){
+    let theta = TWO_PI * i * 2 / 5 - HALF_PI;
+    let x = cx + cos(theta) * r;
+    let y = cy + sin(theta) * r;
+    vertex(x,y);
+  }
+  endShape(CLOSE);
+}
+
 function draw(){
-  background(102, 204, 255);
+  background(51, 102, 255);
   let c = color(230, 172, 0);
   fill(c);
   noStroke();
@@ -41,9 +49,12 @@ function draw(){
   {
    h.push(random(0,windowHeight-110));
   }
-  for(let i = 0; i< 4; i++){
-   fill(255)
-   rect(a,h[i],30,20)}
+  for(let i = 0; i< 3; i++){
+   fill(255, 219, 77)
+   star(a,h[i],20)
+  // if(dist(x-60,y-50,a,h[i])<60){reset();}
+ }
+//   rect(a,h[i],30,20)}
    if(animate) a +=5
 
   image(img, x , y,120,100);
