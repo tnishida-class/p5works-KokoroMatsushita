@@ -6,13 +6,24 @@ const vyMax = 200;
 
 function setup(){
   createCanvas(windowWidth, windowHeight);
+  reset();
+  //x = windowWidth - 60;
+  //y = windowHeight/2;
+  //vx = 2;
+  //vy = 1;
+  //a = 0;
+  //animate = false;
+}
+
+function reset(){
   x = windowWidth - 60;
   y = windowHeight/2;
   vx = 2;
   vy = 1;
-  a = 0
-  animete = false;
+  a = 0;
+  animate = false;
 }
+
 function windowResized(){
   resizeCanvas(windowWidth, windowHeight);
 }
@@ -26,17 +37,15 @@ function draw(){
   noStroke();
   rect(0, windowHeight-50, windowWidth, 50);
 
-  for(let i = 0; i<10; i++)
+  for(let i = 0; i<4; i++)
   {
    h.push(random(0,windowHeight-110));
   }
-  for(let i = 0; i< h.length; i++){
+  for(let i = 0; i< 4; i++){
    fill(255)
-   rect(a,h[i],80,60)}
+   rect(a,h[i],30,20)}
    if(animate) a +=5
 
-  //rect(a,b,80,60)
-  //if(animate) a +=5
   image(img, x , y,120,100);
   if(animate)y += 2
   if(animate) vy += g;
@@ -50,8 +59,8 @@ function draw(){
 function keyPressed(){
   if(keyCode == SHIFT){y -= 50}
   if(keyCode == ENTER){animate = !animate;}
+  if(key == " "){reset();}
 }
-
 
 let img;
 function preload() {
