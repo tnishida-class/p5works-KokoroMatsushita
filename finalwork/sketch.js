@@ -34,7 +34,6 @@ function draw(){
   fill(c);
   noStroke();
   rect(0, windowHeight-50, windowWidth, 50);
-  fill(255)
 
   for(let i = 0; i<10; i++)
   {
@@ -42,7 +41,7 @@ function draw(){
   }
   for(let i = 0; i< h.length; i++){
    fill(255)
-   rect(a,h[i],80,60)
+   rect(a,h[i],80,60)}
    if(animate) a +=5
 
   //rect(a,b,80,60)
