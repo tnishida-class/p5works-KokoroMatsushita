@@ -11,21 +11,21 @@ function setup(){
   vx = 2;
   vy = 1;
   a = 0
-  b = windowHeight/2;
   animete = false;
 }
 function windowResized(){
   resizeCanvas(windowWidth, windowHeight);
 }
 
-//let h =[];
-//for(let i = 0; i<10, i++1){
- //h[i] = random(0,windowHeight-110);
+let h =[];
+//for(let i = 0; i<10; i++)
+//{
+// h.push(random(0,windowHeight-110));
 //}
 //for(let i = 0; i< h.length; i++){
- //const dx
- //rect(a,r,80,60)
- //if(animate) a +=5
+// fill(255)
+// rect(a,h[i],80,60)
+// if(animate) a +=5
 
 
 function draw(){
@@ -35,6 +35,16 @@ function draw(){
   noStroke();
   rect(0, windowHeight-50, windowWidth, 50);
   fill(255)
+
+  for(let i = 0; i<10; i++)
+  {
+   h.push(random(0,windowHeight-110));
+  }
+  for(let i = 0; i< h.length; i++){
+   fill(255)
+   rect(a,h[i],80,60)
+   if(animate) a +=5
+
   //rect(a,b,80,60)
   //if(animate) a +=5
   image(img, x , y,120,100);
