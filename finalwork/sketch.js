@@ -1,6 +1,8 @@
 // 最終課題を制作しよう
 let x,y,vx,vy,a,b;
 let animate
+let count;//ポイント1：関数の外で変数を宣言する
+let cycle;
 const g = 2; // 重力加速度
 const vyMax = 200;
 
@@ -16,7 +18,9 @@ function reset(){
   vy = 1;
   a = 0;
   animate = false;
-  fill(0);
+  //fill(0);
+  count = 0;
+  cycle = 100;
   //regularPolygon(10,250,50,40)
 }
 
@@ -40,22 +44,30 @@ function star(cx, cy, r){
 
 function draw(){
   background(51, 102, 255);
+  fill(0)
+  text("ENTER→GameStart
+  Shift→Jump",windowWidth/2,windowHeight/2)
   let c = color(230, 172, 0);
   fill(c);
   noStroke();
   rect(0, windowHeight-50, windowWidth, 50);
 
-  for(let i = 0; i<4; i++)
-  {
-   h.push(random(0,windowHeight-110));
+if(animate){count = (count + 1) % cycle}
+  if(count == 1 && 50 && 99){
+  for(let i = 0; i < 4; i++){
+  h.push({ x: 0, y: random(0, windowHeight - 80) });
   }
-  for(let i = 0; i< 3; i++){
-   fill(255, 219, 77)
-   star(a,h[i],20)
-  // if(dist(x-60,y-50,a,h[i])<60){reset();}
- }
-//   rect(a,h[i],30,20)}
-   if(animate) a +=5
+  }
+  for(let i = 0; i < h.length; i++){
+  const s = h[i];
+  fill(255, 214, 51);
+  star(s.x, s.y, 20);
+  if(animate) s.x += 5;
+  if(dist(x+60,y+50,s.x,s.y)<40){animate=false;}
+  if(dist(x+60,y+50,s.x,s.y)<40){
+  text("Press SPACE key to reset",windowWidth/2,windowHeight/2)
+  }
+  }
 
   image(img, x , y,120,100);
   if(animate)y += 2
@@ -65,10 +77,23 @@ function draw(){
   y = constrain(y, 0, height-130);
   if(animate) x -=2
   x = constrain(x,0,width);
-}
+
+  if(x == 0){animate=false}
+  if(x == 0){
+  fill(255);
+  textSize(50);
+  textFont("serif");
+  text("Mission Cleared!!", windowWidth/2, windowHeight/2-15);}
+  if(x == 0){
+  fill(255);
+  textSize(20);
+  textFont("serif");
+  text("Press SPACE key to reset", windowWidth/2, windowHeight/2+15);}
+  }
 
 function keyPressed(){
-  if(keyCode == SHIFT){y -= 50}
+  if(keyCode == SHIFT){
+    if(animate){y -= 50}}
   if(keyCode == ENTER){animate = !animate;}
   if(key == " "){reset();}
 }
