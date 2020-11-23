@@ -44,9 +44,11 @@ function star(cx, cy, r){
 
 function draw(){
   background(51, 102, 255);
-  fill(0)
-  text("ENTER→GameStart
-  Shift→Jump",windowWidth/2,windowHeight/2)
+
+  fill(230, 172, 0);
+  textSize(25);
+  text("ENTER:GameStart  SHIFT:Jump",windowWidth/2+50,30);
+
   let c = color(230, 172, 0);
   fill(c);
   noStroke();
@@ -65,6 +67,7 @@ if(animate){count = (count + 1) % cycle}
   if(animate) s.x += 5;
   if(dist(x+60,y+50,s.x,s.y)<40){animate=false;}
   if(dist(x+60,y+50,s.x,s.y)<40){
+  fill(230, 172, 0);
   text("Press SPACE key to reset",windowWidth/2,windowHeight/2)
   }
   }
