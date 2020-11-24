@@ -45,22 +45,25 @@ function star(cx, cy, r){
 function draw(){
   background(51, 102, 255);
 
-  if(x == windowWidth - 60){
-  fill(255);
-  textSize(30);
-  textFont("serif");
-  text("Press ENTER to GameStart!",windowWidth/2,windowHeight/2);
-}
-
   let c = color(230, 172, 0);
   fill(c);
   noStroke();
   rect(0, windowHeight-50, windowWidth, 50);
 
+  if(x == windowWidth - 60){
+  fill(255);
+  textSize(30);
+  textFont("serif");
+  text("Press ENTER to GameStart!",windowWidth/2,windowHeight/2);
+  fill(0)
+  textSize(20)
+  text("UP key : Up     DOWN key : Down", windowWidth/2,windowHeight-25)
+}
+
   fill(0);
   textSize(20);
   textFont("serif");
-  text("SHIFT key : Jump",windowWidth/2,windowHeight-20)
+  text("SHIFT key : Jump",10,windowHeight-20)
 
   if(animate){count = (count + 1) % cycle}
   if(count == 25){
