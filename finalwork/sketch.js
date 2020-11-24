@@ -20,7 +20,7 @@ function reset(){
   animate = false;
   //fill(0);
   count = 0;
-  cycle = 100;
+  cycle = 50;
   //regularPolygon(10,250,50,40)
 }
 
@@ -45,18 +45,25 @@ function star(cx, cy, r){
 function draw(){
   background(51, 102, 255);
 
-  fill(230, 172, 0);
-  textSize(25);
+  if(x == windowWidth - 60){
+  fill(255);
+  textSize(30);
   textFont("serif");
-  text("Press ENTER to GameStart",windowWidth/2,30);
+  text("Press ENTER to GameStart!",windowWidth/2,windowHeight/2);
+}
 
   let c = color(230, 172, 0);
   fill(c);
   noStroke();
   rect(0, windowHeight-50, windowWidth, 50);
 
-if(animate){count = (count + 1) % cycle}
-  if(count == 1 && 50 && 99){
+  fill(0);
+  textSize(20);
+  textFont("serif");
+  text("SHIFT key : Jump",windowWidth/2,windowHeight-20)
+
+  if(animate){count = (count + 1) % cycle}
+  if(count == 25){
   for(let i = 0; i < 4; i++){
   h.push({ x: 0, y: random(0, windowHeight - 80) });
   }
@@ -65,7 +72,7 @@ if(animate){count = (count + 1) % cycle}
   const s = h[i];
   fill(255, 214, 51);
   star(s.x, s.y, 20);
-  if(animate) s.x += 5;
+  if(animate) s.x += 7;
   if(dist(x+60,y+50,s.x,s.y)<40){animate=false;}
   if(dist(x+60,y+50,s.x,s.y)<40){
   fill(230, 172, 0);
@@ -80,6 +87,11 @@ if(animate){count = (count + 1) % cycle}
   if(y < 0 || y > windowHeight-200){ vy = 1 * vy; }
   y = constrain(y, 0, height-130);
   if(animate) x -=2
+  if(x == windowWidth - 60){
+  if(keyIsDown(UP_ARROW)){ y -= 5; }
+  if(keyIsDown(DOWN_ARROW)){ y += 5; }
+  }
+
   x = constrain(x,0,width);
 
   if(x == 0){animate=false}
