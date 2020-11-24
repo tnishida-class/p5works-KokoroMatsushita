@@ -47,7 +47,8 @@ function draw(){
 
   fill(230, 172, 0);
   textSize(25);
-  text("ENTER:GameStart  SHIFT:Jump",windowWidth/2+50,30);
+  textFont("serif");
+  text("Press ENTER to GameStart",windowWidth/2,30);
 
   let c = color(230, 172, 0);
   fill(c);
